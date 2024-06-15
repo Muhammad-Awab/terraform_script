@@ -1,3 +1,10 @@
+terraform {
+  backend "s3" {
+    bucket = "static-bucket1"
+    key    = "tfstate"
+    region = "us-east-1"
+  }
+}
 module "vpc" {
   source = "./modules/vpc"
   vpc_id = var.vpc_id
@@ -39,10 +46,4 @@ module "eip" {
   source = "./modules/eip"
   eip_name = var.eip_name
   instance_id = module.ec2.instance_id
-}
-module "terraform_backend" {
-  source   = "./modules/backend"
-  bucket_name = var.bucket_name
-  tfstate_key = "tfstate"
-  region      = var.region
 }

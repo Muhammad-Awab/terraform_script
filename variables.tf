@@ -55,3 +55,8 @@ variable "eip_name" {
   type = string
   default = "j_web_e_ip"
 }
+variable "tfstate_key" {
+  type        = string
+  description = "Key name for the Terraform state file in the S3 bucket"
+  default = "tfstate"
+}
