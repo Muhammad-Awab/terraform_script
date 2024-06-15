@@ -3,7 +3,7 @@ resource "aws_instance" "j_web" {
   ami                         = var.base_ami
   instance_type               = var.instance_type
   associate_public_ip_address = true
-  availability_zone           = "us-east-1a"
+  availability_zone           = var.availability_zone
   key_name                    = var.key_name
   security_groups             = var.security_groups
   subnet_id                   = var.subnet_id
@@ -17,7 +17,7 @@ resource "aws_instance" "j_web" {
               EOF
 
   tags = {
-    Name = "j_web"
+    Name = var.instance_name
   }
 }
 

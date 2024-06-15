@@ -26,9 +26,23 @@ module "ec2" {
   base_ami        = var.ec2_base_ami
   subnet_id       = var.subnet_id
   security_groups = module.security_group.security_group_ids
+  availability_zone = var.availability_zone
+  instance_name   = var.instance_name
   key_name        = module.key_pair.key_name
 }
 
 module "ecr" {
   source = "./modules/ecr"
+}
+
+module "eip" {
+  source = "./modules/eip"
+  eip_name = var.eip_name
+  instance_id = module.ec2.instance_id
+}
+module "terraform_backend" {
+  source   = "./modules/backend"
+  bucket_name = var.bucket_name
+  tfstate_key = "tfstate"
+  region      = var.region
 }
