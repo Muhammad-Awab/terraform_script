@@ -10,6 +10,7 @@ variable "subnet_id" {
 
 variable "security_group_name" {
   type    = string
+  default = "j_web_sg"
 }
 
 
@@ -33,4 +34,24 @@ variable "ec2_instance_type" {
 variable "ec2_base_ami" {
   type    = string
   default = "ami-04b70fa74e45c3917"
+}
+variable "bucket_name" {
+  type    = string
+  default = "static-bucket1"
+}
+variable "availability_zone" {
+  type = string
+  default = "us-east-1a"
+}
+variable "instance_name" {
+  type = string
+  default = "j_web"
+}
+variable "region" {
+  type = string
+  default = "us-east-1"
+}
+variable "eip_name" {
+  type = string
+  default = "j_web_e_ip"
 }
