@@ -52,6 +52,14 @@ terraform_project/
 │ ├── main.tf
 │ ├── variables.tf
 │ └── outputs.tf
+│ └── eip/
+│ ├── main.tf
+│ ├── variables.tf
+│ └── outputs.tf
+│ └── backend/
+│ ├── main.tf
+│ ├── variables.tf
+│ └── outputs.tf
 └── README.md
 ```
 ### Module Descriptions
