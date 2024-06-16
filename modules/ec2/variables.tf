@@ -17,6 +17,9 @@ variable "security_groups" {
 variable "key_name" {
   type = string
 }
+variable "private_key_path" {
+  type = string
+}
 
 variable "availability_zone" {
   description = "The availability zone for launching the EC2 instance"
@@ -25,14 +28,15 @@ variable "availability_zone" {
 variable "instance_name" {
   description = "The name of the EC2 instance"
 }
-variable "nginx_conf" {
-  description = "The NGINX configuration file content"
+variable "nginx_conf_path" {
+  type = string
+
 }
 
-variable "ssl_certificate" {
-  description = "The SSL certificate content"
+variable "ssl_certificate_path" {
+  type = string
 }
 
-variable "ssl_certificate_key" {
-  description = "The SSL certificate key content"
+variable "ssl_certificate_key_path" {
+  type = string
 }

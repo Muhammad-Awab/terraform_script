@@ -36,9 +36,11 @@ module "ec2" {
   availability_zone = var.availability_zone
   instance_name   = var.instance_name
   key_name        = module.key_pair.key_name
-  nginx_conf      = var.nginx_conf
-  ssl_certificate = var.ssl_certificate
-  ssl_certificate_key = var.ssl_certificate_key
+  nginx_conf_path = "./nginx.conf"
+  ssl_certificate_path = var.ssl_certificate
+  ssl_certificate_key_path = var.ssl_certificate_key
+  private_key_path = var.private_key_path
+  
 }
 
 module "ecr" {

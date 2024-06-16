@@ -26,6 +26,11 @@ variable "ec2_public_key_path" {
   default     = "./front.pub"
 }
 
+variable "private_key_path" {
+  type        = string
+  description = "Path to the private key file"
+  default     = "./front"
+}
 variable "ec2_instance_type" {
   type    = string
   default = "t3.micro"
