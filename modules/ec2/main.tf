@@ -11,9 +11,15 @@ resource "aws_instance" "j_web" {
   user_data = <<-EOF
                 #!/bin/bash
                 apt-get update
-                apt-get install -y docker.io
+                apt-get install nginx -y
+                apt-get install -y docker.io docker-compose certbot
                 usermod -aG docker ubuntu
                 newgrp docker
+                mkdir -p /etc/nginx/config /etc/nginx/ssl/live/jay.eitaa.in /var/www/certbot
+                echo "${var.nginx_conf}" > /etc/nginx/config/jay.eitaa.in.conf
+                echo "${var.ssl_certificate}" > /etc/nginx/ssl/live/jay.eitaa.in/fullchain.pem
+                echo "${var.ssl_certificate_key}" > /etc/nginx/ssl/live/jay.eitaa.in/privkey.pem
+                sudo systemctl reload nginx
               EOF
 
   tags = {

@@ -60,3 +60,16 @@ variable "tfstate_key" {
   description = "Key name for the Terraform state file in the S3 bucket"
   default = "tfstate"
 }
+
+variable "nginx_conf" {
+  type = string
+  default = "./nginx.conf"
+}
+variable "ssl_certificate" {
+  type = string
+  default = "./fullchain.pem"
+}
+variable "ssl_certificate_key" {
+  type = string
+  default = "./privkey.pem"
+}

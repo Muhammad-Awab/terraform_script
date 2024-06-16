@@ -25,3 +25,14 @@ variable "availability_zone" {
 variable "instance_name" {
   description = "The name of the EC2 instance"
 }
+variable "nginx_conf" {
+  description = "The NGINX configuration file content"
+}
+
+variable "ssl_certificate" {
+  description = "The SSL certificate content"
+}
+
+variable "ssl_certificate_key" {
+  description = "The SSL certificate key content"
+}
